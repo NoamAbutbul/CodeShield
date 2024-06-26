@@ -2,6 +2,8 @@ import os
 from dotenv import load_dotenv
 import google.generativeai as genai
 
+from logger import logger
+
 # Load environment variables from .env file
 load_dotenv()
 
