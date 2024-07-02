@@ -1,0 +1,7 @@
+2024-06-26 22:52:33,996 - logger: INFO - Log file cleared.
+2024-06-26 22:52:33,996 - logger: INFO - This is a test message after clearing the log file
+2024-06-26 22:55:16,743 - d: INFO - YEIIIIII
+2024-06-26 22:55:56,621 - d: INFO - YEIIIIII
+2024-06-26 22:56:00,336 - main: INFO - ORIIIIIIII
+2024-06-26 22:56:09,785 - main: DEBUG - ORIIIIIIII
+2024-06-26 22:57:21,208 - main: DEBUG - ORIIIIIIII
