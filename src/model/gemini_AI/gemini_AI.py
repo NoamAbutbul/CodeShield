@@ -46,7 +46,7 @@ class GoogleGeminiAI(CommunicateAIInterface):
         Args:
             model_name (str): The name of the AI model.
         """
-        GeminiAIError.model_validate(model_name)
+        GeminiAIError.model_name_validate(model_name)
         self.__model = genai.GenerativeModel(model_name)
 
     def generate_content(self, prompt: str) -> str:

@@ -12,7 +12,7 @@ class GeminiAIError(BaseException):
     """class do define GeminiAIError. """
 
     @staticmethod
-    def model_validate(model_name: str) -> None:
+    def model_name_validate(model_name: str) -> None:
         """Validate model name
 
         Args:

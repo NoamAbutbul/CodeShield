@@ -2,6 +2,8 @@
     File to define BaseException
 """
 
+from src.logger import logger
+
 
 class BaseException(Exception):
     """class BaseException to define the base custom exception.
@@ -17,6 +19,7 @@ class BaseException(Exception):
             message (str): message for the exception
         """
         super().__init__(message)
+        logger.error(message)
         self.__message: str = message
 
     def __str__(self) -> str:
