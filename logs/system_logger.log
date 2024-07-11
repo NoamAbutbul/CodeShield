@@ -1,0 +1,11 @@
+2024-06-26 22:52:33,996 - logger: INFO - Log file cleared.
+2024-06-26 22:52:33,996 - logger: INFO - This is a test message after clearing the log file
+2024-06-26 22:55:16,743 - d: INFO - YEIIIIII
+2024-06-26 22:55:56,621 - d: INFO - YEIIIIII
+2024-06-26 22:56:00,336 - main: INFO - ORIIIIIIII
+2024-06-26 22:56:09,785 - main: DEBUG - ORIIIIIIII
+2024-06-26 22:57:21,208 - main: DEBUG - ORIIIIIIII
+2024-07-04 22:56:17,932 - main: INFO - configure settings
+2024-07-04 23:12:29,748 - base_exception: ERROR - Model name shlomo does not exist
+ -> available models: ['gemini-1.5-flash', 'gemini-1.5-standard', 'gemini-1.5-premium']
+2024-07-04 23:17:02,412 - base_exception: ERROR - Model not set. Call set_model first.
