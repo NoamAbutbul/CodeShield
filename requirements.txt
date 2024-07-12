@@ -27,3 +27,5 @@ tqdm==4.66.4
 typing_extensions==4.12.2
 uritemplate==4.1.1
 urllib3==2.2.2
+vscode.py==2.0.0b2
+websockets==12.0

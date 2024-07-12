@@ -4,8 +4,10 @@
 
 
 import google.generativeai as genai
+from typing import Any
+from src.configuration import GEMINI_MODELS_NAMES
 from src.model.communicate_AI_interface import CommunicateAIInterface
-from src.model.gemini_AI.gemini_AI_exception import GeminiAIError
+from src.model.gemini_AI.gemini_AI_exception import GeminiAIError, ModelSetError, ModelNameError
 
 
 class GoogleGeminiAI(CommunicateAIInterface):
@@ -46,7 +48,7 @@ class GoogleGeminiAI(CommunicateAIInterface):
         Args:
             model_name (str): The name of the AI model.
         """
-        GeminiAIError.model_name_validate(model_name)
+        self.model_name_validate(model_name)
         self.__model = genai.GenerativeModel(model_name)
 
     def generate_content(self, prompt: str) -> str:
@@ -61,7 +63,7 @@ class GoogleGeminiAI(CommunicateAIInterface):
         Raises:
             GeminiAIError: If the model is not set yet.
         """
-        GeminiAIError.model_set_validate(self.__model)
+        self.model_set_validate(self.__model)
         response = self.__model.generate_content(prompt)
         return response.text
 
@@ -89,3 +91,28 @@ class GoogleGeminiAI(CommunicateAIInterface):
         """
         GeminiAIError.model_set_validate(self.__model)
         return self.__model.get_info()
+
+    def model_name_validate(self, model_name: str) -> None:
+        """Validate model name
+
+        Args:
+            model_name (str): model name to validate
+
+        Raises:
+            ModelNameError: if model name is invalid
+        """
+        if model_name not in GEMINI_MODELS_NAMES:
+            raise ModelNameError(
+                f"Model name '{model_name}' does not exist\n -> available models: {GEMINI_MODELS_NAMES}")
+
+    def model_set_validate(self, model: Any) -> None:
+        """validate if model set.
+
+        Args:
+            model (Any): the model to validate
+
+        Raises:
+            ModelSetError: if the model not set yet
+        """
+        if not model:
+            raise ModelSetError("Model not set. Call set_model first.")
