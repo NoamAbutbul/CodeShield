@@ -1,5 +1,0 @@
-env/
-.env
-FindYourPropose.egg-info
-**/__pycache__/
-.vscode
