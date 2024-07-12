@@ -5,35 +5,42 @@
 
 from typing import Any
 from src.exceptions import BaseException
-from src.configuration import GEMINI_MODELS_NAMES
 
 
 class GeminiAIError(BaseException):
-    """class do define GeminiAIError. """
+    """class to define GeminiAIError. """
 
-    @staticmethod
-    def model_name_validate(model_name: str) -> None:
-        """Validate model name
-
-        Args:
-            model_name (str): model name to validate
-
-        Raises:
-            GeminiAIError: if model name is invalid
-        """
-        if model_name not in GEMINI_MODELS_NAMES:
-            raise GeminiAIError(
-                f"Model name {model_name} does not exist\n -> available models: {GEMINI_MODELS_NAMES}")
-
-    @staticmethod
-    def model_set_validate(model: Any) -> None:
-        """validate if model set.
+    def __init__(self, message: str) -> None:
+        """Initializes the GeminiAIError with message.
 
         Args:
-            model (Any): the model to validate
-
-        Raises:
-            GeminiAIError: if the model not set yet
+            message (str): message for the exception
         """
-        if not model:
-            raise GeminiAIError("Model not set. Call set_model first.")
+        message = f"[GeminiAI]: {message}"
+        super().__init__(message)
+
+
+class ModelNameError(GeminiAIError):
+    """class to define ModelNameError. """
+
+    def __init__(self, message: str) -> None:
+        """Initializes the ModelNameError with message.
+
+        Args:
+            message (str): message for the exception
+        """
+        message = f"[ModelName]: {message}"
+        super().__init__(message)
+
+
+class ModelSetError(GeminiAIError):
+    """class to define ModelSetError. """
+
+    def __init__(self, message: str) -> None:
+        """Initializes the ModelSetError with message.
+
+        Args:
+            message (str): message for the exception
+        """
+        message = f"[ModelSet]: {message}"
+        super().__init__(message)

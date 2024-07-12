@@ -1,5 +1,5 @@
-env/
+venv/
 .env
-FindYourPropose.egg-info
+CodeShield.egg-info
 **/__pycache__/
 .vscode
