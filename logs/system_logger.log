@@ -9,14 +9,3 @@
 2024-07-04 23:12:29,748 - base_exception: ERROR - Model name shlomo does not exist
  -> available models: ['gemini-1.5-flash', 'gemini-1.5-standard', 'gemini-1.5-premium']
 2024-07-04 23:17:02,412 - base_exception: ERROR - Model not set. Call set_model first.
-2024-07-08 21:53:46,081 - base_exception: ERROR - Model name ddh does not exist
- -> available models: ['gemini-1.5-flash', 'gemini-1.5-standard', 'gemini-1.5-premium'][ModelName] + Model name ddh does not exist
- -> available models: ['gemini-1.5-flash', 'gemini-1.5-standard', 'gemini-1.5-premium'][GeminiAI] + Model name ddh does not exist
- -> available models: ['gemini-1.5-flash', 'gemini-1.5-standard', 'gemini-1.5-premium'][ModelName] + Model name ddh does not exist
- -> available models: ['gemini-1.5-flash', 'gemini-1.5-standard', 'gemini-1.5-premium']
-2024-07-08 21:54:49,188 - base_exception: ERROR - [GeminiAI] + [ModelName] + Model name ddh does not exist
- -> available models: ['gemini-1.5-flash', 'gemini-1.5-standard', 'gemini-1.5-premium']
-2024-07-08 21:55:14,524 - base_exception: ERROR - [GeminiAI]: [ModelName]: Model name ddh does not exist
- -> available models: ['gemini-1.5-flash', 'gemini-1.5-standard', 'gemini-1.5-premium']
-2024-07-08 21:55:37,605 - base_exception: ERROR - [GeminiAI]: [ModelName]: Model name 'ddh' does not exist
- -> available models: ['gemini-1.5-flash', 'gemini-1.5-standard', 'gemini-1.5-premium']
