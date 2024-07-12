@@ -1,21 +1,13 @@
-import os
-from dotenv import load_dotenv
-import google.generativeai as genai
+"""
+    Main file, run this file to run project.
+"""
 
-from logger import logger
+from src import API_KEY
+from src.model.gemini_AI import GoogleGeminiAI
 
-# Load environment variables from .env file
-load_dotenv()
 
-# Retrieve the API key from environment variables
-api_key = os.getenv('API_KEY')
-
-# Use the API key in your application
-print(f"Your API key is: {api_key}")
-
-# Setting up Gemini
-genai.configure(api_key=api_key)
-model = genai.GenerativeModel('gemini-1.5-flash')
-
-response = model.generate_content("Write a story about a AI and magic")
-print(response.text)
+model = GoogleGeminiAI()
+model.configure(API_KEY)
+model.set_model('gemini-1.5-flash')
+response = model.generate_content("who is spongebob")
+print(response)

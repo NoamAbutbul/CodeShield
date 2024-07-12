@@ -1,0 +1,7 @@
+# yaml file to define consts of the project
+
+# Gemini Model Settings
+GEMINI_MODELS_NAMES:
+  - gemini-1.5-flash
+  - gemini-1.5-standard
+  - gemini-1.5-premium
