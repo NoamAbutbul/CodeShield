@@ -2,6 +2,7 @@
     Main file, run this file to run project.
 """
 
+
 from src import API_KEY
 from src.model.gemini_AI import GoogleGeminiAI
 
