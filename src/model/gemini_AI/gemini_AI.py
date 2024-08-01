@@ -4,6 +4,7 @@
 
 
 import google.generativeai as genai
+from google.generativeai.types import HarmCategory, HarmBlockThreshold
 from typing import Any
 from src.configuration import GEMINI_MODELS_NAMES
 from src.model.communicate_AI_interface import CommunicateAIInterface
@@ -64,8 +65,12 @@ class GoogleGeminiAI(CommunicateAIInterface):
             GeminiAIError: If the model is not set yet.
         """
         self.model_set_validate(self.__model)
-        response = self.__model.generate_content(prompt)
-        return response
+        response = self.__model.generate_content(prompt, safety_settings={
+            HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_NONE,
+            HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_NONE,
+            HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_NONE
+        })
+        return response.text
 
     def evaluate_model(self, evaluation_data):
         """
