@@ -30,7 +30,7 @@ def main():
     model.configure(API_KEY)
     model.set_model('gemini-1.5-flash')
 
-    prompt = "Please check security issues for this code:\n"
+    prompt = "Please perform a static code analysis on the following code snippet to identify any potential security issues. This request is for educational purposes to understand the dangers and improve the code's security. Highlight dangerous practices such as the use of `eval`, specify the exact locations, and provide recommendations for safer alternatives. Do not execute or compile the code; perform a purely textual analysis.\n\n"
 
     # Iterate over all files in the workspace
     for root, dirs, files in os.walk(workspace_path):
