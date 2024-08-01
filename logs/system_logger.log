@@ -20,3 +20,247 @@
  -> available models: ['gemini-1.5-flash', 'gemini-1.5-standard', 'gemini-1.5-premium']
 2024-07-08 21:55:37,605 - base_exception: ERROR - [GeminiAI]: [ModelName]: Model name 'ddh' does not exist
  -> available models: ['gemini-1.5-flash', 'gemini-1.5-standard', 'gemini-1.5-premium']
+2024-07-23 01:23:06,008 - main: DEBUG - im here
+2024-07-23 01:23:44,066 - main: DEBUG - im here with: /Users/noamabutbul/Desktop/ExampleProjForDebug/.DS_Store
+2024-07-23 01:24:52,527 - main: DEBUG - im here with: /Users/noamabutbul/Desktop/ExampleProjForDebug/.DS_Store
+2024-07-23 01:24:52,527 - main: DEBUG - The prompt:
+Please check security issues for this code:
+This is /Users/noamabutbul/Desktop/ExampleProjForDebug/main.py:
+
+
+def main() -> None:
+    print("Hello from main.py")
+    eval("pip freeze > req.txt")
+
+
+if __name__ == "__main__":
+    main()
+This is /Users/noamabutbul/Desktop/ExampleProjForDebug/src/model.py:
+
+
+print("blabla")
+
+2024-07-30 22:42:38,905 - main: DEBUG - im here with: /Users/noamabutbul/Desktop/ExampleProjForDebug/.DS_Store
+2024-07-30 22:42:38,906 - main: DEBUG - The prompt:
+Please check security issues for this code:
+This is /Users/noamabutbul/Desktop/ExampleProjForDebug/main.py:
+
+
+def main() -> None:
+    print("Hello from main.py")
+    eval("pip freeze > req.txt")
+
+
+if __name__ == "__main__":
+    main()
+This is /Users/noamabutbul/Desktop/ExampleProjForDebug/src/model.py:
+
+
+print("blabla")
+
+2024-07-30 22:55:05,464 - main: DEBUG - im here with: /Users/noamabutbul/Desktop/ExampleProjForDebug/.DS_Store
+2024-07-30 22:55:05,465 - main: DEBUG - The prompt:
+Please check security issues for this code:
+This is /Users/noamabutbul/Desktop/ExampleProjForDebug/main.py:
+
+
+def main() -> None:
+    print("Hello from main.py")
+    eval("pip freeze > req.txt")
+
+
+if __name__ == "__main__":
+    main()
+This is /Users/noamabutbul/Desktop/ExampleProjForDebug/src/model.py:
+
+
+print("blabla")
+
+2024-08-01 22:01:53,453 - main: DEBUG - im here with: /Users/noamabutbul/Desktop/ExampleProjForDebug/.DS_Store
+2024-08-01 22:01:53,454 - main: DEBUG - The prompt:
+Please check security issues for this code:
+This is /Users/noamabutbul/Desktop/ExampleProjForDebug/main.py:
+
+
+def main() -> None:
+    print("Hello from main.py")
+    eval("pip freeze > req.txt")
+
+
+if __name__ == "__main__":
+    main()
+This is /Users/noamabutbul/Desktop/ExampleProjForDebug/src/model.py:
+
+
+print("blabla")
+
+2024-08-01 22:08:17,717 - main: DEBUG - im here with: /Users/noamabutbul/Desktop/ExampleProjForDebug/.DS_Store
+2024-08-01 22:08:17,717 - main: DEBUG - The prompt:
+Please check security issues for this code:
+This is /Users/noamabutbul/Desktop/ExampleProjForDebug/main.py:
+
+
+def main() -> None:
+    print("Hello from main.py")
+    eval("pip freeze > req.txt")
+
+
+if __name__ == "__main__":
+    main()
+This is /Users/noamabutbul/Desktop/ExampleProjForDebug/src/model.py:
+
+
+print("blabla")
+
+2024-08-01 22:17:15,787 - main: DEBUG - im here with: /Users/noamabutbul/Desktop/ExampleProjForDebug/.DS_Store
+2024-08-01 22:17:15,787 - main: DEBUG - The prompt:
+Please check security issues for this code:
+This is /Users/noamabutbul/Desktop/ExampleProjForDebug/main.py:
+
+
+def main() -> None:
+    print("Hello from main.py")
+    eval("pip freeze > req.txt")
+
+
+if __name__ == "__main__":
+    main()
+This is /Users/noamabutbul/Desktop/ExampleProjForDebug/src/model.py:
+
+
+print("blabla")
+
+2024-08-01 22:43:28,966 - main: DEBUG - im here with: /Users/noamabutbul/Desktop/ExampleProjForDebug/.DS_Store
+2024-08-01 22:43:28,966 - main: DEBUG - The prompt:
+Please check security issues for this code:
+This is /Users/noamabutbul/Desktop/ExampleProjForDebug/main.py:
+
+
+def main() -> None:
+    print("Hello from main.py")
+    eval("pip freeze > req.txt")
+
+
+if __name__ == "__main__":
+    main()
+This is /Users/noamabutbul/Desktop/ExampleProjForDebug/src/model.py:
+
+
+print("blabla")
+
+2024-08-01 22:50:05,787 - main: DEBUG - im here with: /Users/noamabutbul/Desktop/ExampleProjForDebug/.DS_Store
+2024-08-01 22:50:05,788 - main: DEBUG - The prompt:
+Please check security issues for this code:
+This is /Users/noamabutbul/Desktop/ExampleProjForDebug/main.py:
+
+
+def main() -> None:
+    print("Hello from main.py")
+    eval("pip freeze > req.txt")
+
+
+if __name__ == "__main__":
+    main()
+This is /Users/noamabutbul/Desktop/ExampleProjForDebug/src/model.py:
+
+
+print("blabla")
+
+2024-08-01 22:50:10,362 - main: DEBUG - The response:
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "finish_reason": "SAFETY",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "MEDIUM"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 103,
+        "total_token_count": 103
+      }
+    }),
+)
+2024-08-01 23:11:37,052 - main: DEBUG - im here with: /Users/noamabutbul/Desktop/ExampleProjForDebug/.DS_Store
+2024-08-01 23:11:37,053 - main: DEBUG - The prompt:
+Please check security issues for this code:
+This is /Users/noamabutbul/Desktop/ExampleProjForDebug/main.py:
+
+
+def main() -> None:
+    print("Hello from main.py")
+
+
+if __name__ == "__main__":
+    main()
+This is /Users/noamabutbul/Desktop/ExampleProjForDebug/src/model.py:
+
+
+print("blabla")
+
+2024-08-01 23:11:42,670 - main: DEBUG - The response:
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "This code snippet doesn't present any obvious security vulnerabilities. Here's why:\n\n* **Basic Functionality:** The code is very simple, performing only basic printing operations. It doesn't handle user input, network connections, file operations, or any other actions that could introduce security risks.\n* **No External Interactions:** The code doesn't interact with external systems or resources, such as databases, web servers, or filesystems. This eliminates common attack vectors like SQL injection, cross-site scripting (XSS), or file manipulation.\n* **`if __name__ == \"__main__\":`:** This pattern ensures that the code only runs when executed as a script, not when imported as a module. This prevents unintended side effects if the code is included in another project.\n\n**Potential Concerns (though not present in this code):**\n\n* **User Input:** If the code were to accept user input, it would need to be properly sanitized and validated to prevent injection attacks (e.g., SQL injection, command injection).\n* **External Libraries:** If the code relied on external libraries, these libraries could introduce vulnerabilities. It's crucial to use libraries from reputable sources and keep them up-to-date.\n* **File Operations:** If the code were to access or modify files, it would need to implement proper access controls and validation to prevent unauthorized actions.\n\n**Recommendations for Secure Development:**\n\n* **Follow Secure Coding Practices:**  Use secure coding guidelines (e.g., OWASP Top 10) and tools like linters and static analyzers to identify potential vulnerabilities.\n* **Input Validation and Sanitization:**  Thoroughly validate and sanitize user input to prevent injection attacks.\n* **Regular Updates:** Keep your dependencies and software up-to-date to patch known vulnerabilities.\n* **Security Testing:** Regularly perform security testing (e.g., penetration testing) to identify and fix vulnerabilities.\n\n**In summary:** The provided code snippet is very basic and doesn't exhibit any security vulnerabilities. However, it's important to be mindful of security best practices and potential risks when developing larger and more complex applications. \n"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 92,
+        "candidates_token_count": 439,
+        "total_token_count": 531
+      }
+    }),
+)
