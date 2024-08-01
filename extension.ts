@@ -25,8 +25,8 @@ export function activate(context: vscode.ExtensionContext) {
 
         exec(`${venvPath} ${pythonScriptPath} ${workspacePath}`, options, (err, stdout, stderr) => {
             if (err) {
-                vscode.window.showErrorMessage(`Error: ${stderr}`);
-                console.log(`Error: ${stderr}`);
+                vscode.window.showErrorMessage(`Error: ${err.message}`);
+                console.log(`Error: ${err.message}`);
             } else {
                 vscode.window.showInformationMessage(`Output: ${stdout}`);
                 console.log(`Output: ${stdout}`);

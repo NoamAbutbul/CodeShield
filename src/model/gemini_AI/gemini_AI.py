@@ -65,7 +65,7 @@ class GoogleGeminiAI(CommunicateAIInterface):
         """
         self.model_set_validate(self.__model)
         response = self.__model.generate_content(prompt)
-        return response.text
+        return response
 
     def evaluate_model(self, evaluation_data):
         """
