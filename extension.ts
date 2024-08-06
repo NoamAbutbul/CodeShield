@@ -1,9 +1,14 @@
 import * as vscode from 'vscode';
 import { exec } from 'child_process';
 import * as path from 'path';
-import fs from 'fs';
+import * as fs from 'fs';
+import { marked } from 'marked';
 
-
+/**
+ * Activates the extension by registering the security check command.
+ * 
+ * @param {vscode.ExtensionContext} context - The extension context provided by VS Code.
+ */
 export function activate(context: vscode.ExtensionContext) {
     let disposable = vscode.commands.registerCommand('codeShield.securityCheck', () => {
         const pythonScriptPath = path.join(context.extensionPath, 'main.py');
@@ -29,7 +34,7 @@ export function activate(context: vscode.ExtensionContext) {
                 vscode.window.showErrorMessage(`Error: ${err.message}`);
                 console.log(`Error: ${err.message}`);
             } else {
-                createWebviewPanel(stdout);
+                createWebviewPanel(stdout, context.extensionPath);
             }
         });
     });
@@ -37,24 +42,42 @@ export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(disposable);
 }
 
+/**
+ * Deactivates the extension. Currently does nothing.
+ */
 export function deactivate() {}
 
-function createWebviewPanel(output: string) {
+/**
+ * Creates a webview panel to display the security check results.
+ * 
+ * @param {string} output - The output from the security check.
+ * @param {string} extensionPath - The path to the extension directory.
+ */
+function createWebviewPanel(output: string, extensionPath: string) {
     const panel = vscode.window.createWebviewPanel(
         'codeShieldOutput', // Identifies the type of the webview. Used internally
         'CodeShield Output', // Title of the panel displayed to the user
         vscode.ViewColumn.One, // Editor column to show the new webview panel in
-        {} // Webview options
+        {
+            enableScripts: true // Enable scripts in the webview
+        }
     );
 
     // Format the output as plain text, replacing HTML tags
     const formattedOutput = formatOutput(output);
 
+    console.log("Formatted output:", formattedOutput);
+
     // And set its HTML content
-    panel.webview.html = renderTemplate(formattedOutput);
+    panel.webview.html = renderTemplate(formattedOutput, extensionPath);
 }
 
-
+/**
+ * Formats the security check output by removing HTML tags and converting markers to new lines.
+ * 
+ * @param {string} output - The raw output from the security check.
+ * @returns {string} - The formatted output as plain text.
+ */
 function formatOutput(output: string): string {
     return output
         .replace(/<\/?[^>]+(>|$)/g, '') // Remove all HTML tags
@@ -62,48 +85,65 @@ function formatOutput(output: string): string {
         .trim(); // Remove leading and trailing whitespace
 }
 
-
-
-
-function renderTemplate(output: string): string {
+/**
+ * Renders the HTML template with the security check output.
+ * 
+ * @param {string} output - The formatted security check output.
+ * @param {string} extensionPath - The path to the extension directory.
+ * @returns {string} - The final HTML content with the output injected.
+ */
+function renderTemplate(output: string, extensionPath: string): string {
     // Load the HTML template from file
-    // const templatePath = path.resolve('output_template/template.html');
-    const template = fs.readFileSync('output_template/template.html', 'utf-8');
-    
+    const templatePath = path.join(extensionPath, 'output_template', 'template.html');
+    console.log('Template path:', templatePath);
+    const template = readFileToString(templatePath);
+
+    vscode.window.showInformationMessage("Template content:", template);
+
+    const output_html = convertMarkdownToHtml(output)
+
     // Replace the placeholder with the actual output
-    const renderedHtml = template.replace('{{output}}', output);
+    const renderedHtml = template.replace('{{output}}', output_html.toString());
 
-    console.log('html file:', renderedHtml);
+    console.log('Rendered HTML:', renderedHtml);
 
-    
     return renderedHtml;
 }
 
+/**
+ * Reads the content of a file into a string.
+ * 
+ * @param {string} filePath - The path to the file.
+ * @returns {string} - The content of the file.
+ * @throws {Error} - Throws an error if the file cannot be read.
+ */
+function readFileToString(filePath: string): string {
+    try {
+        console.log('Reading file from path:', filePath);
+        const absolutePath = path.resolve(filePath);
+        console.log('Resolved absolute path:', absolutePath);
+        const data = fs.readFileSync(absolutePath, 'utf8');
+        console.log('File content:', data);
+        return data;
+    } catch (error) {
+        if (error instanceof Error) {
+            console.error(`Error reading file: ${error.message}`);
+            vscode.window.showErrorMessage(`Error reading file: ${error.message}`);
+            throw error;
+        } else {
+            console.error('Unknown error', error);
+            vscode.window.showErrorMessage('An unknown error occurred while reading the file.');
+            throw new Error('Unknown error occurred while reading the file.');
+        }
+    }
+}
 
-
-// function getWebviewContent(output: string): string {
-//     // Simple HTML template to display the output
-//     return `<!DOCTYPE html>
-//     <html lang="en">
-//     <head>
-//         <meta charset="UTF-8">
-//         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-//         <title>CodeShield Output</title>
-//         <style>
-//             body {
-//                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-//                 padding: 16px;
-//                 line-height: 1.6;
-//             }
-//             pre {
-//                 background-color: #f3f3f3;
-//                 padding: 32px;
-//                 border-radius: 8px;
-//             }
-//         </style>
-//     </head>
-//     <body>
-//         <pre>${output}</pre>
-//     </body>
-//     </html>`;
-// }
+/**
+ * Converts a Markdown string to HTML.
+ * 
+ * @param {string} markdown - The Markdown content to convert.
+ * @returns {string | Promise<string>} - The HTML content.
+ */
+function convertMarkdownToHtml(markdown: string): string | Promise<string> {
+    return marked(markdown);
+}
