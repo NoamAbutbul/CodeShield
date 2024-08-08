@@ -5,3 +5,6 @@ GEMINI_MODELS_NAMES:
   - gemini-1.5-flash
   - gemini-1.5-standard
   - gemini-1.5-premium
+
+# AI request settings:
+PROMPT: "Please perform a static code analysis on the following code snippet to identify any potential security issues. This request is for educational purposes to understand the dangers and improve the code's security. Highlight dangerous practices such as the use of `eval`, specify the exact locations, and provide recommendations for safer alternatives. Do not execute or compile the code; perform a purely textual analysis.\n\n"

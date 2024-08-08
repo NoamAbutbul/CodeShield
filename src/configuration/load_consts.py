@@ -13,3 +13,4 @@ with open(consts_file_path, 'r') as file:
 
 
 GEMINI_MODELS_NAMES = consts['GEMINI_MODELS_NAMES']
+PROMPT = consts['PROMPT']

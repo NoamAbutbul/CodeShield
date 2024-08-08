@@ -126,7 +126,9 @@ if __name__ == "__main__":
     doc_id = 'doc0'
     data = {'name': 'Example Name', 'value': 'Example Value'}
 
-    datastore_crud.add_kind(kind, doc_id, data)
+    # datastore_crud.add_kind(kind, doc_id, data)
 
     # Verify the new kind and document
     datastore_crud.read_document(kind, doc_id)
+
+    datastore_crud.delete_document(kind, doc_id)

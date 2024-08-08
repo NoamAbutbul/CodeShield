@@ -13,7 +13,6 @@ export function activate(context: vscode.ExtensionContext) {
     let disposable = vscode.commands.registerCommand('codeShield.securityCheck', () => {
         const pythonScriptPath = path.join(context.extensionPath, 'main.py');
         const venvPath = path.join(context.extensionPath, 'venv', 'bin', 'python');
-
         const workspaceFolders = vscode.workspace.workspaceFolders;
         
         if (!workspaceFolders || workspaceFolders.length === 0) {
@@ -56,7 +55,7 @@ export function deactivate() {}
 function createWebviewPanel(output: string, extensionPath: string) {
     const panel = vscode.window.createWebviewPanel(
         'codeShieldOutput', // Identifies the type of the webview. Used internally
-        'CodeShield Output', // Title of the panel displayed to the user
+        'Security Checking Summary', // Title of the panel displayed to the user
         vscode.ViewColumn.One, // Editor column to show the new webview panel in
         {
             enableScripts: true // Enable scripts in the webview
@@ -65,9 +64,8 @@ function createWebviewPanel(output: string, extensionPath: string) {
 
     // Format the output as plain text, replacing HTML tags
     const formattedOutput = formatOutput(output);
-
     console.log("Formatted output:", formattedOutput);
-
+    
     // And set its HTML content
     panel.webview.html = renderTemplate(formattedOutput, extensionPath);
 }
@@ -97,16 +95,11 @@ function renderTemplate(output: string, extensionPath: string): string {
     const templatePath = path.join(extensionPath, 'output_template', 'template.html');
     console.log('Template path:', templatePath);
     const template = readFileToString(templatePath);
-
-    vscode.window.showInformationMessage("Template content:", template);
-
     const output_html = convertMarkdownToHtml(output)
 
     // Replace the placeholder with the actual output
     const renderedHtml = template.replace('{{output}}', output_html.toString());
-
     console.log('Rendered HTML:', renderedHtml);
-
     return renderedHtml;
 }
 
