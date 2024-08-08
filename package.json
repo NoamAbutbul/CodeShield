@@ -59,6 +59,7 @@
         "inherits": "^2.0.4",
         "isarray": "^1.0.0",
         "listenercount": "^1.0.1",
+        "marked": "^13.0.3",
         "minimatch": "^3.1.2",
         "minimist": "^1.2.8",
         "mkdirp": "^0.5.6",
