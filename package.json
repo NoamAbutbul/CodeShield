@@ -2,7 +2,7 @@
     "name": "code-shield",
     "displayName": "Code Shield",
     "description": "A VSCode extension that check security issues in your code",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "publisher": "NoamAbutbulEliyahuAnter",
     "engines": {
         "vscode": "^1.91.0"
@@ -87,5 +87,6 @@
     },
     "keywords": [],
     "author": "Noam Abutbul & Eliyahu Anter",
-    "license": "MIT"
+    "license": "MIT",
+    "icon": "assets/logo.png" 
 }
