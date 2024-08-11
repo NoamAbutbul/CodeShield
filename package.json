@@ -1,8 +1,8 @@
 {
     "name": "code-shield",
     "displayName": "Code Shield",
-    "description": "A VSCode extension that runs a Python script, TODO",
-    "version": "0.0.1",
+    "description": "A VSCode extension that check security issues in your code",
+    "version": "0.0.2",
     "publisher": "NoamAbutbulEliyahuAnter",
     "engines": {
         "vscode": "^1.91.0"
