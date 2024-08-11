@@ -3,14 +3,17 @@
     "displayName": "Code Shield",
     "description": "A VSCode extension that runs a Python script, TODO",
     "version": "0.0.1",
-    "publisher": "anter-abutbul",
+    "publisher": "NoamAbutbulEliyahuAnter",
     "engines": {
-        "vscode": "^1.60.0"
+        "vscode": "^1.91.0"
     },
     "categories": [
         "Other"
     ],
     "main": "./out/extension.js",
+    "activationEvents": [
+        "onCommand:codeShield.securityCheck"
+    ],
     "contributes": {
         "commands": [
             {
@@ -19,6 +22,11 @@
             }
         ]
     },
+    "repository": {
+    "type": "git",
+    "url": "https://github.com/NoamAbutbul/CodeShield"
+    },
+
     "scripts": {
         "vscode:prepublish": "npm run compile",
         "compile": "tsc -p ./",
@@ -78,6 +86,6 @@
         "wrappy": "^1.0.2"
     },
     "keywords": [],
-    "author": "",
-    "license": "ISC"
+    "author": "Noam Abutbul & Eliyahu Anter",
+    "license": "MIT"
 }
